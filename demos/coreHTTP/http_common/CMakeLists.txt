@@ -1,0 +1,23 @@
+# Module for demo helper utilities based on coreMQTT library. 
+afr_module(NAME http_common)
+
+afr_module_sources(
+    ${AFR_CURRENT_MODULE}
+    PRIVATE
+        ${CMAKE_CURRENT_LIST_DIR}/src/http_demo_utils.c
+)
+
+afr_module_include_dirs(
+    ${AFR_CURRENT_MODULE}
+    PUBLIC
+       ${CMAKE_CURRENT_LIST_DIR}/include
+)
+
+afr_module_dependencies(
+    ${AFR_CURRENT_MODULE}
+    PUBLIC
+        AFR::core_http
+        AFR::retry_utils
+        AFR::transport_interface_secure_sockets
+        AFR::secure_sockets
+)
