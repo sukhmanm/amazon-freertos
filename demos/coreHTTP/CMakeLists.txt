@@ -20,7 +20,7 @@ afr_module_sources(
 afr_module_include_dirs(
     ${AFR_CURRENT_MODULE}
     INTERFACE
-        ${AFR_DEMOS_DIR}/common/http_demo_helpers/include
+        ${AFR_DEMOS_DIR}/common/http_demo_helpers
 )
 
 afr_module_dependencies(

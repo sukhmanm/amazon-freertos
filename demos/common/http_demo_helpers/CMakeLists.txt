@@ -4,14 +4,14 @@ afr_module(NAME http_demo_helpers)
 afr_module_sources(
     ${AFR_CURRENT_MODULE}
     PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}/src/http_demo_utils.c
+        ${CMAKE_CURRENT_LIST_DIR}/http_demo_utils.c
 )
 
 afr_module_include_dirs(
     ${AFR_CURRENT_MODULE}
     PUBLIC
-       ${CMAKE_CURRENT_LIST_DIR}/include
-)
+        "${CMAKE_CURRENT_LIST_DIR}"
+    )
 
 afr_module_dependencies(
     ${AFR_CURRENT_MODULE}
@@ -19,5 +19,4 @@ afr_module_dependencies(
         AFR::core_http
         AFR::retry_utils
         AFR::transport_interface_secure_sockets
-        AFR::secure_sockets
 )
