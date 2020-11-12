@@ -28,9 +28,6 @@
 /* Retry utilities. */
 #include "retry_utils.h"
 
-/* Third party parser utilities. */
-#include "http_parser.h"
-
 /*-----------------------------------------------------------*/
 
 BaseType_t connectToServerWithBackoffRetries( TransportConnect_t connectFunction,
@@ -38,14 +35,15 @@ BaseType_t connectToServerWithBackoffRetries( TransportConnect_t connectFunction
 {
     BaseType_t xReturn = pdFAIL;
     /* Status returned by the retry utilities. */
-    RetryUtilsStatus_t retryUtilsStatus = RetryUtilsSuccess;
+    RetryUtilsStatus_t xRetryUtilsStatus = RetryUtilsSuccess;
     /* Struct containing the next backoff time. */
-    RetryUtilsParams_t reconnectParams;
+    RetryUtilsParams_t xReconnectParams;
 
     assert( connectFunction != NULL );
 
     /* Initialize reconnect attempts and interval */
-    RetryUtils_ParamsReset( &reconnectParams );
+    RetryUtils_ParamsReset( &xReconnectParams );
+    xReconnectParams.maxRetryAttempts = MAX_RETRY_ATTEMPTS;
 
     /* Attempt to connect to HTTP server. If connection fails, retry after
      * a timeout. Timeout value will exponentially increase until maximum
@@ -54,13 +52,16 @@ BaseType_t connectToServerWithBackoffRetries( TransportConnect_t connectFunction
     {
         xReturn = connectFunction( pxNetworkContext );
 
-        if( xReturn != pdTRUE )
+        if( xReturn != pdPASS )
         {
             LogWarn( ( "Connection to the HTTP server failed. "
                        "Retrying connection with backoff and jitter." ) );
-            retryUtilsStatus = RetryUtils_BackoffAndSleep( &reconnectParams );
+            LogInfo( ( "Retry attempt %lu out of maximum retry attempts %lu.",
+                       ( xReconnectParams.attemptsDone + 1 ),
+                       MAX_RETRY_ATTEMPTS ) );
+            xRetryUtilsStatus = RetryUtils_BackoffAndSleep( &xReconnectParams );
         }
-    } while( ( xReturn == pdFAIL ) && ( retryUtilsStatus == RetryUtilsSuccess ) );
+    } while( ( xReturn == pdFAIL ) && ( xRetryUtilsStatus == RetryUtilsSuccess ) );
 
     if( xReturn == pdFAIL )
     {

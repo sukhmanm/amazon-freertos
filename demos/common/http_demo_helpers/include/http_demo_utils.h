@@ -27,8 +27,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-/* Transport interface include. */
-#include "transport_interface.h"
+/* Transport interface implementation include header for TLS. */
+#include "transport_secure_sockets.h"
 
 /* Kernel includes. */
 #include "FreeRTOS.h"
@@ -41,7 +41,7 @@
  *
  * @param[out] pxNetworkContext Implementation-defined network context.
  *
- * @return EXIT_FAILURE on failure; EXIT_SUCCESS on successful connection.
+ * @return pdFAIL on failure; pdPASS on successful connection.
  */
 typedef BaseType_t ( * TransportConnect_t )( NetworkContext_t * pxNetworkContext );
 
@@ -55,7 +55,7 @@ typedef BaseType_t ( * TransportConnect_t )( NetworkContext_t * pxNetworkContext
  * @param[in] connectFunction Function pointer for establishing connection to a server.
  * @param[out] pxNetworkContext Implementation-defined network context.
  *
- * @return EXIT_FAILURE on failure; EXIT_SUCCESS on successful connection.
+ * @return pdFAIL on failure; pdPASS on successful connection.
  */
 BaseType_t connectToServerWithBackoffRetries( TransportConnect_t connectFunction,
                                               NetworkContext_t * pxNetworkContext );
