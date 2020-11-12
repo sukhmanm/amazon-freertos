@@ -26,6 +26,7 @@
 /* Standard includes. */
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 /* Transport interface implementation include header for TLS. */
 #include "transport_secure_sockets.h"
