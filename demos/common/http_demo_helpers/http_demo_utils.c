@@ -62,8 +62,7 @@ BaseType_t connectToServerWithBackoffRetries( TransportConnect_t connectFunction
                        MAX_RETRY_ATTEMPTS ) );
             xRetryUtilsStatus = RetryUtils_BackoffAndSleep( &xReconnectParams );
         }
-    } while( ( xReturn == pdFAIL ) && ( xRetryUtilsStatus == RetryUtilsSuccess )
-             );
+    } while( ( xReturn == pdFAIL ) && ( xRetryUtilsStatus == RetryUtilsSuccess ) );
 
     if( xReturn == pdFAIL )
     {
