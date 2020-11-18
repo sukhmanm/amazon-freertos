@@ -537,7 +537,11 @@ set(TEST_EXCLUDE_COMPONENTS nghttp)
 set(IDF_EXCLUDE_COMPONENTS nghttp)
 set(IDF_TEST_EXCLUDE_COMPONENTS nghttp)
 
-set(IDF_EXCLUDE_COMPONENTS nghttp2)
+set(EXCLUDE_COMPONENTS esp_http_server)
+set(TEST_EXCLUDE_COMPONENTS esp_http_server)
+
+set(IDF_EXCLUDE_COMPONENTS esp_http_server)
+set(IDF_TEST_EXCLUDE_COMPONENTS esp_http_server)
 
 # set(IDF_TEST_EXCLUDE_COMPONENTS "nghttp")
 
