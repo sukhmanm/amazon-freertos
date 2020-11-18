@@ -531,7 +531,12 @@ endfunction()
 # Override IDF's native toolchain file
 set(IDF_TOOLCHAIN_FILE ${CMAKE_TOOLCHAIN_FILE})
 
+set(EXCLUDE_COMPONENTS nghttp)
+set(TEST_EXCLUDE_COMPONENTS nghttp)
+
 set(IDF_EXCLUDE_COMPONENTS nghttp)
+set(IDF_TEST_EXCLUDE_COMPONENTS nghttp)
+
 set(IDF_EXCLUDE_COMPONENTS nghttp2)
 
 # set(IDF_TEST_EXCLUDE_COMPONENTS "nghttp")
