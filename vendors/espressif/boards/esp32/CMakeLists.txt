@@ -531,19 +531,6 @@ endfunction()
 # Override IDF's native toolchain file
 set(IDF_TOOLCHAIN_FILE ${CMAKE_TOOLCHAIN_FILE})
 
-set(EXCLUDE_COMPONENTS nghttp)
-set(TEST_EXCLUDE_COMPONENTS nghttp)
-
-set(IDF_EXCLUDE_COMPONENTS nghttp)
-set(IDF_TEST_EXCLUDE_COMPONENTS nghttp)
-
-set(EXCLUDE_COMPONENTS esp_http_server)
-set(TEST_EXCLUDE_COMPONENTS esp_http_server)
-
-set(IDF_EXCLUDE_COMPONENTS esp_http_server)
-set(IDF_TEST_EXCLUDE_COMPONENTS esp_http_server)
-
-# set(IDF_TEST_EXCLUDE_COMPONENTS "nghttp")
 
 # Wraps add_subdirectory() to create library targets for components, and then `return` them using the given variable.
 # In this case the variable is named `component`
