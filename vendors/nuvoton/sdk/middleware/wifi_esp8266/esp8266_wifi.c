@@ -791,7 +791,7 @@ void ESP_WIFI_Clear_Ipd( ESP_WIFI_Object_t * pxObj, uint8_t LinkID )
             }
             *p = (*p)->next;
             pxObj->HeapUsage -= (sizeof(struct ESP_WIFI_PACKET) + q->TotalLength);;
-            free(q);
+            vPortFree(q);
         } else {
             // Point to last packet next field
             p = &(*p)->next;
