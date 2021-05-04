@@ -1,6 +1,6 @@
 ---
-name: Bug report
-about: Create a bug report to help us improve amazon-freertos by identifying any confirmed
+name: Bug Report
+about: Create a report to help us improve amazon-freertos by identifying any confirmed
   bugs. To discuss a potential bug, or pose other inquiries, please open an issue
   using the template linked below.
 title: '"[BUG] <replace with your title>"'
