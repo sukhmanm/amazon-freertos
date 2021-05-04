@@ -1,7 +1,9 @@
 ---
 name: Feature request
 about: Suggest an idea for FreeRTOS
-labels: feature request
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
