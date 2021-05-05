@@ -9,10 +9,12 @@ assignees: ''
 ---
 
 **Briefly summarize the issue being raised**
+
 Please describe the topic requiring attention in this issue, as well some background on its current status.
 
 **Describe the intended outcome**
-Identify the result desired from upcoming discussion and eventual resolution of this issue.
+
+Identify the desired result of upcoming discussion and eventual resolution of this issue.
 
 **System information**
 - Hardware board: [ ... ]
@@ -24,12 +26,15 @@ Identify the result desired from upcoming discussion and eventual resolution of 
   snippet(s) in the "Code/Steps to reproduce the current status" section.
 
 **References**
-Attach any screenshots, logs, etc. that may help to provide a better understanding of the highlighted issue.
+
+Provide any screenshots, logs, etc. that may help to provide a better understanding of the highlighted issue.
 
 **Code/Steps to reproduce the current status**
-If applicable, provide the code snippet(s) or concrete instructions used to reproduce the current status. Code should be wrapped in the ``'cpp'`` tag in order to be displayed clearly. For example:
+
+If applicable, provide concrete instructions or the relevant code snippet(s) for reproducing the current status. Code should be wrapped in the ``'cpp'`` tag in order to be displayed clearly. For example:
 ```cpp
 printf("Hello World")
 ```
 **Additional context**
-Add any remaining information not included in the previous responses.
+
+Add any remaining information not mentioned in the previous responses.
